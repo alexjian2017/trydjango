@@ -1,2 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <h1> Hello world</h1>
+{{request.user}}
+<p>{{name}} is {{age}} years old</p>
+{{my_list.0}}
 <p>this is a templates</p>
+
+{% for abc in my_list %}
+    <p> {{forloop_counter}} - {{abc}}</p>
+{% endfor %}
+{{age|add:12}}
+
+{% endblock %}
