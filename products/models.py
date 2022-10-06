@@ -6,3 +6,5 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=1000)
     summary = models.TextField(blank = False, null = False)
     featured = models.BooleanField(default=False)
+    def get_absolute_url(self):
+        return f'/product/{self.id}'
