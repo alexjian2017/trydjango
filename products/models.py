@@ -1,5 +1,5 @@
-from email.policy import default
 from django.db import models
+from django.urls import reverse
 class Product(models.Model):
     title = models.CharField(max_length=50,)
     description = models.TextField(blank = True, null = True)
@@ -7,4 +7,5 @@ class Product(models.Model):
     summary = models.TextField(blank = False, null = False)
     featured = models.BooleanField(default=False)
     def get_absolute_url(self):
-        return f'/product/{self.id}'
+        return reverse('products:product-detail', kwargs={'my_id':self.id})
+        #return f'/product/{self.id}'
